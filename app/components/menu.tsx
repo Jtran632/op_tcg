@@ -1,33 +1,62 @@
-const starterDecks = [
-  ["Starter Deck 1: Straw Hat Crew", 3189],
-  ["Starter Deck 2: Worst Generation", 3191],
-  ["Starter Deck 3: The Seven Warlords of The Sea", 3192],
-  ["Starter Deck 4: Animal Kingdom Pirates", 3190],
-  ["Starter Deck 5: Film Edition", 17687],
-  ["Starter Deck 6: Absolute Justice", 17699],
-  ["Starter Deck 7: Big Mom Pirates", 22930],
-  ["Starter Deck 8: Monkey.D.Luffy", 22956],
-  ["Starter Deck 9: Yamato", 22957],
-  ["Starter Deck 11: Uta", 23250],
-  ["Starter Deck 12: Zoro and Sanji", 23348],
-  ["Starter Deck 14: 3D2Y", 23489],
-  ["Starter Deck 15: RED Edward.Newgate", 23490],
-  ["Starter Deck 16: GREEN Uta", 23491],
-  ["Starter Deck 17: BLUE Donquixote Doflamingo", 23492],
-  ["Starter Deck 18: PURPLE Monkey.D.Luffy", 23493],
-  ["Starter Deck 19: BLACK Smoker", 23494],
-  ["Starter Deck 20: YELLOW Charlotte Katakuri", 23495],
-  ["Starter Deck EX: Gear 5", 23991],
+"use client";
+import React, { useState } from "react";
+import { boosterSets, starterDecks, prerelease, extra } from "./cardsets";
+type DeckItem = [string, number][];
+interface ItemValueProps {
+  value: number;
+  setValue: React.Dispatch<React.SetStateAction<number>>;
+}
+const sLst: [DeckItem, string][] = [
+  [boosterSets, "Booster Sets"],
+  [starterDecks, "Starter Decks"],
+  [prerelease, "Pre-Release"],
+  [extra, "Extra/Promotional"],
 ];
 
-export default function Menu() {
+export default function Menu({ value, setValue }: ItemValueProps) {
+  const [Selection, setSelection] = useState(0);
+  const MapDeck = ({ deck }: { deck: DeckItem }) => {
+    return (
+      <div className="flex flex-col text-xs ml-6 w-1/4">
+        <select
+          className="bg-gray-50 border border-gray-300 text-gray-900 w-full text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block px-4 py-1"
+          onChange={(e) => setValue(parseInt(e.target.value))}
+          value={value}
+        >
+          {deck.map((item) => (
+            <option key={item[1]} value={item[1]}>
+              {item[0]}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  };
+  const MapSelect = () => {
+    return (
+      <div className="flex p-2 w-1/12">
+        <select
+          className="bg-white text-black text-md px-4 py-1 rounded-sm"
+          value={Selection}
+          onChange={(e) => {
+            setSelection(parseInt(e.target.value));
+            setValue(sLst[parseInt(e.target.value)][0][0][1]);
+          }}
+        >
+          {sLst.map((item, index) => (
+            <option key={index} value={index}>
+              {item[1]}
+            </option>
+          ))}
+        </select>
+      </div>
+    );
+  };
+
   return (
-    <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
-      {starterDecks.map(([name, id]) => (
-        <option key={id} value={id}>
-          {name}
-        </option>
-      ))}
-    </select>
+    <div className="flex text-center gap-4 items-center">
+      <MapSelect />
+      <MapDeck deck={sLst[Selection][0]} />
+    </div>
   );
 }
