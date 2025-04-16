@@ -22,12 +22,12 @@ export const starterDecks: DeckItem = [
   ["[ST-20] - Starter Deck 20: YELLOW Charlotte Katakuri", 23495],
   ["[ST-21] - Starter Deck 21: EX GeaRS", 23991],
 //   ["[ST-22] - Starter Deck 22: Ace & NewGate", 0], 
-//   ["[ST-23] - Starter Deck 23: RED Shanks", 24282],
-//   ["[ST-24] - Starter Deck 24: GREEN Jewelry Bonney", 24283],
-//   ["[ST-25] - Starter Deck 25: BLUE Buggy", 24284],
-//   ["[ST-26] - Starter Deck 26: PURPLE/BLACK Monkey.D.Luffy", 24285],
-//   ["[ST-27] - Starter Deck 27: BLACK Marshall.D.Teach", 24286],
-//   ["[ST-28] - Starter Deck 28: GREEN/YELLOW Yamato", 24287],
+  ["[ST-23] - Starter Deck 23: RED Shanks", 24282],
+  ["[ST-24] - Starter Deck 24: GREEN Jewelry Bonney", 24283],
+  ["[ST-25] - Starter Deck 25: BLUE Buggy", 24284],
+  ["[ST-26] - Starter Deck 26: PURPLE/BLACK Monkey.D.Luffy", 24285],
+  ["[ST-27] - Starter Deck 27: BLACK Marshall.D.Teach", 24286],
+  ["[ST-28] - Starter Deck 28: GREEN/YELLOW Yamato", 24287],
 ];
 // These aren't released yet so no data available yet for cards
 
