@@ -46,7 +46,7 @@ export default function Home() {
 
   const MapCards = () => {
     return (
-      <div className="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 border-2 border-red-600 gap-4 px-20 py-4 ">
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 border border-white gap-4 px-20 py-4 ">
         {cards.map((card: CardI, idx: number) => {
           return (
             <div
@@ -75,7 +75,7 @@ export default function Home() {
   };
   const MapOther = () => {
     return (
-      <div className="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 border-2 border-red-600 gap-4 px-20 py-4 ">
+      <div className="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 border border-white gap-4 px-20 py-4 ">
         {other.map(
           (
             i: {
@@ -120,7 +120,7 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="border">
       <Menu value={value} setValue={setValue} />
       {cards.length > 0 && <MapCards />}
       {cards.length === 0 && <MapOther />}
