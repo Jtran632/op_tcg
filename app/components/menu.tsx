@@ -17,9 +17,9 @@ export default function Menu({ value, setValue }: ItemValueProps) {
   const [Selection, setSelection] = useState(0);
   const MapDeck = ({ deck }: { deck: DeckItem }) => {
     return (
-      <div className="flex flex-col text-xs ml-6 w-1/4">
+      <div className="flex text-xs">
         <select
-          className="bg-gray-50 border border-gray-300 text-gray-900 w-full text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block px-4 py-1"
+          className="bg-white border rounded-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-1"
           onChange={(e) => setValue(parseInt(e.target.value))}
           value={value}
         >
@@ -34,9 +34,9 @@ export default function Menu({ value, setValue }: ItemValueProps) {
   };
   const MapSelect = () => {
     return (
-      <div className="flex p-2 w-1/12">
+      <div className="flex p-2">
         <select
-          className="bg-white text-black text-md px-4 py-1 rounded-sm"
+          className="bg-white border rounded-sm focus:ring-blue-500 focus:border-blue-500 px-4 py-1 "
           value={Selection}
           onChange={(e) => {
             setSelection(parseInt(e.target.value));
@@ -54,7 +54,7 @@ export default function Menu({ value, setValue }: ItemValueProps) {
   };
 
   return (
-    <div className="flex text-center gap-4 items-center">
+    <div className="flex gap-4 text-center items-center text-xs text-black ">
       <MapSelect />
       <MapDeck deck={sLst[Selection][0]} />
     </div>

@@ -21,7 +21,7 @@ export const starterDecks: DeckItem = [
   ["[ST-19] - Starter Deck 19: BLACK Smoker", 23494],
   ["[ST-20] - Starter Deck 20: YELLOW Charlotte Katakuri", 23495],
   ["[ST-21] - Starter Deck 21: EX GeaRS", 23991],
-//   ["[ST-22] - Starter Deck 22: Ace & NewGate", 0], 
+  ["[ST-22] - Starter Deck 22: Ace & NewGate", 24304],
   ["[ST-23] - Starter Deck 23: RED Shanks", 24282],
   ["[ST-24] - Starter Deck 24: GREEN Jewelry Bonney", 24283],
   ["[ST-25] - Starter Deck 25: BLUE Buggy", 24284],
@@ -72,4 +72,6 @@ export const extra: DeckItem = [
   ["Revision Pack Cards", 23890],
   ["One Piece Demo Deck Cards", 23907],
   ["Royal Blood Release Event Cards", 24068],
+  ["Premium Booster -The Best- Vol. 2", 24305],
+  ["Learn Together Deck Set", 24306],
 ];
