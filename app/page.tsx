@@ -19,6 +19,7 @@ export default function Home() {
     extendedData: extendedDataItem[];
     url: string;
   }
+  const rarities = ["DON!!", "L", "C", "UC", "R", "SR", "SEC"];
   useEffect(() => {
     async function fetchCards() {
       setCurRarity("");
@@ -73,21 +74,23 @@ export default function Home() {
   const MapRarity = () => {
     return (
       <div className="flex border gap-1 px-4 py-4 justify-center items-center text-xs text-black ">
-        {rarity.map((val: string, idx: number) => {
-          return (
-            <button
-              key={idx}
-              className={`border hover:border-green-500 w-fit h-fit text-center px-4 py-1 rounded-sm ${
-                curRarity === val ? "text-white" : "bg-white"
-              }`}
-              onClick={() =>
-                val === curRarity ? setCurRarity("") : setCurRarity(val)
-              }
-            >
-              {val}
-            </button>
-          );
-        })}
+        {rarities
+          .filter((val) => rarity.includes(val))
+          .map((val, idx) => {
+            return (
+              <button
+                key={idx}
+                className={`border hover:border-green-500 w-fit h-fit text-center px-4 py-1 rounded-sm ${
+                  curRarity === val ? "text-white" : "bg-white"
+                }`}
+                onClick={() =>
+                  val === curRarity ? setCurRarity("") : setCurRarity(val)
+                }
+              >
+                {val}
+              </button>
+            );
+          })}
       </div>
     );
   };
@@ -96,7 +99,7 @@ export default function Home() {
       <div className="flex flex-col">
         <div className="grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-3 xl:grid-cols-4 border border-white gap-4 px-20 py-4 ">
           {filteredCards.map((card: CardI, idx: number) => {
-            console.log(card);
+            // console.log(card);
             return (
               <div
                 key={idx}
